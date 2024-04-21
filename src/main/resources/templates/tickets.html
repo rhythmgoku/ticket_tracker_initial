@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Ticket Tracker Application</title>
+<link rel="icon" type="image/png" href="/images/logo2.png" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<style>
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 7%;
+}
+</style>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" th:href="@{/admin/tickets}">Ticket Tracker Application</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		  <!-- Navbar links -->
+		  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		    <ul class="navbar-nav">
+		      <li class="nav-item">
+		        <a class="nav-link" th:href="@{/admin/tickets}">Tickets</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" th:href="@{/admin/tickets/addnew}">New Ticket</a>
+		      </li>
+		    </ul>
+		  </div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h1 style="margin-left: 13px;">List of Tickets</h1>
+		</div>
+		<br>
+
+		<form th:action="@{/admin/tickets/search}" th:object="${search}"
+			method="POST">
+
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="input-group">
+						<input type="text" class="form-control rounded"
+							placeholder="Search" id="search" name="search"
+							title="Please Enter only AlphaNumberic values. If Nothing Selected All tickets will be shown"
+							pattern="[a-zA-Z0-9_]{0,}" aria-label="Search"
+							aria-describedby="search-addon" />
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<br>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Ticket Id</th>
+					<th>Title</th>
+					<th>Short Description</th>
+					<th>Created On</th>
+					<th>Edited On</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="ticket: ${tickets}">
+					<td th:text="${ticket.id}"></td>
+					<td th:text="${ticket.title}"></td>
+					<td th:text="${ticket.shortdescription}"></td>
+					<td th:text="${ticket.createdOn}"></td>
+					<td th:text="${ticket.editedOn}"></td>
+					<td><a th:href="@{/admin/tickets/{id}/edit (id=${ticket.id})}"
+						class="btn btn-primary">Edit</a> <a
+						th:href="@{/admin/tickets/{id}/delete (id=${ticket.id})}"
+						class="btn btn-danger">Delete</a> <a
+						th:href="@{/admin/tickets/{id}/view (id=${ticket.id})}"
+						style="background-color: yellowgreen;" class="btn btn-primary">View</a></td>
+				</tr>
+			</tbody>
+
+		</table>
+
+	</div>
+
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2023 GreatLearning. All rights reserved.</p>
+	</footer>
+
+</body>
+</html>
