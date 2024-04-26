@@ -1,6 +1,8 @@
 package com.greatlearning.tickettracker.controller;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.greatlearning.tickettracker.entity.Ticket;
 import com.greatlearning.tickettracker.services.TrackerService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Controller
 @RequestMapping("/admin/tickets")
-@Slf4j
 public class TicketTrackerController {
 
 	@Autowired
@@ -27,7 +26,7 @@ public class TicketTrackerController {
 
 	@GetMapping(value = { "", "/" })
 	public String getAllTickets(Model model) {
-		List<Ticket> ticketsList = trackerService.getAllTickets();
+		Set<Ticket> ticketsList = new LinkedHashSet<>(trackerService.getAllTickets());
 		model.addAttribute("tickets", ticketsList);
 		model.addAttribute("search", "");
 		return "tickets";
@@ -42,7 +41,9 @@ public class TicketTrackerController {
 		} else {
 			ticketsList = trackerService.findTicketsBykeyword(keyword);
 		}
-		model.addAttribute("tickets", ticketsList);
+		Set<Ticket> ticketList = new LinkedHashSet<>(ticketsList);
+		model.addAttribute("search", keyword);
+		model.addAttribute("tickets", ticketList);
 		return "tickets";
 	}
 

@@ -15,5 +15,5 @@ public interface TrackerService {
 	Ticket getTicketById(int id);
 
 	List<Ticket> findTicketsBykeyword(String keyword);
-	
+
 }

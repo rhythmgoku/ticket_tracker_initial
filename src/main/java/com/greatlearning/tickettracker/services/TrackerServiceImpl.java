@@ -22,7 +22,7 @@ public class TrackerServiceImpl implements TrackerService {
 
 	@Override
 	public List<Ticket> getAllTickets() {
-		return ticketRepository.findAll();
+		return ticketRepository.findAllByOrderByIdAsc();
 	}
 
 	@Override
@@ -52,10 +52,10 @@ public class TrackerServiceImpl implements TrackerService {
 	@Override
 	public List<Ticket> findTicketsBykeyword(String keyword) {
 		List<Ticket> tickets = new ArrayList<>();
-		tickets.addAll(ticketRepository.findByShortdescriptionContaining(keyword));
-		tickets.addAll(ticketRepository.findByTitleContaining(keyword));
+		tickets.addAll(ticketRepository.findByShortdescriptionContainingOrderByIdAsc(keyword));
+		tickets.addAll(ticketRepository.findByTitleContainingOrderByIdAsc(keyword));
 		return tickets;
-		
+
 	}
 
 }

@@ -14,10 +14,10 @@ public class GlobalDefaultExceptionHandler {
 	@ExceptionHandler(value = Exception.class)
 	public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception exception) {
 		ModelAndView modelAndView = new ModelAndView();
-		String errorCode = "404";  
-		if(exception instanceof HttpServerErrorException) {
-			HttpServerErrorException ex =  (HttpServerErrorException) exception;
-			errorCode = ex.getStatusCode().value()+"";
+		String errorCode = "404";
+		if (exception instanceof HttpServerErrorException) {
+			HttpServerErrorException ex = (HttpServerErrorException) exception;
+			errorCode = ex.getStatusCode().value() + "";
 		}
 		modelAndView.addObject("exception", exception.getLocalizedMessage());
 		modelAndView.addObject("url", request.getRequestURL());

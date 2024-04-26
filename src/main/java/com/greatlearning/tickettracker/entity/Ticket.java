@@ -1,9 +1,5 @@
 package com.greatlearning.tickettracker.entity;
 
-
-import java.sql.Clob;
-import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Table(name = "ticket")
 public class Ticket {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -30,12 +26,12 @@ public class Ticket {
 	private String title;
 
 	private String shortdescription;
-	
+
 	@Lob
 	private String content;
-	
+
 	private String createdOn;
-	
+
 	private String editedOn;
 
 	public Ticket(Ticket ticket) {
@@ -45,7 +41,5 @@ public class Ticket {
 		this.content = ticket.getContent();
 		this.createdOn = ticket.getCreatedOn();
 	}
-	
-	
 
 }

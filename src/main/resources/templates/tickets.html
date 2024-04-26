@@ -63,7 +63,7 @@ footer {
 							placeholder="Search" id="search" name="search"
 							title="Please Enter only AlphaNumberic values. If Nothing Selected All tickets will be shown"
 							pattern="[a-zA-Z0-9_]{0,}" aria-label="Search"
-							aria-describedby="search-addon" />
+							aria-describedby="search-addon" th:value="${#strings.isEmpty(search)} ? '' : ${search}" />
 						<div class="box-footer">
 							<button type="submit" class="btn btn-primary">Search</button>
 						</div>
@@ -97,7 +97,7 @@ footer {
 						th:href="@{/admin/tickets/{id}/delete (id=${ticket.id})}"
 						class="btn btn-danger">Delete</a> <a
 						th:href="@{/admin/tickets/{id}/view (id=${ticket.id})}"
-						style="background-color: yellowgreen;" class="btn btn-primary">View</a></td>
+						 class="btn btn-primary btn-info">View</a></td>
 				</tr>
 			</tbody>
 

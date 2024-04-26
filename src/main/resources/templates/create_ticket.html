@@ -9,16 +9,12 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 	
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/backbutton.css" />
+	
 <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
-<style>	
-footer {
-	position: fixed;
-	    left: 0;
-	    bottom: 0;
-	    width: 100%;
-	    height: 7%;			
-}
-</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -49,8 +45,17 @@ footer {
 		<div class="row">
 			<div
 				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class="text-center">Create New Ticket</h1>
-				<div class="card-body">
+				<div>
+					<div class="inline">
+						<a class="btn btn-dark back-button" title=" Back to Tickets Page"
+							th:href="@{/admin/tickets}"> <span><i
+								class="fa fa-arrow-left"></i></span>
+						</a>
+					</div>
+					<div class="inline">
+						<h1 class="text-center head-text-create">Create Ticket</h1>
+					</div>
+				</div>				<div class="card-body">
 					<form th:action="@{/admin/tickets/save}" th:object="${ticket}"
 						method="POST">
 						<div class="form-group">
