@@ -15,7 +15,7 @@ import com.greatlearning.tickettracker.repository.TicketRepository;
 @Service
 public class TrackerServiceImpl implements TrackerService {
 
-	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Autowired
 	TicketRepository ticketRepository;

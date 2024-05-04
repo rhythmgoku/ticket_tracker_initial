@@ -10,6 +10,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" type="text/css" href="/css/backbutton.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
@@ -17,8 +22,8 @@
 <body>
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
 		<!-- Brand -->
-		<a class="navbar-brand" th:href="@{/admin/tickets}">Ticket Tracker
-			Application</a>
+		<a class="navbar-brand" th:href="@{/{role}/tickets (role=${role})}">Ticket
+			Tracker Application</a>
 
 		<!-- Toggler/collapsibe Button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -30,9 +35,24 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/admin/tickets}">Tickets</a></li>
+					th:href="@{/{role}/tickets (role=${role})}">Tickets</a></li>
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/admin/tickets/addnew}">New Ticket</a></li>
+					th:href="@{/{role}/tickets/addnew (role=${role})}">New Ticket</a></li>
+			</ul>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="userDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" th:text=" 'Hi ' + ${username} + '' "></a>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="userDropdown">
+						<div class="dropdown-item" th:text=" 'Role - ' + ${role}"></div>
+						<div class="dropdown-divider"></div>
+						<a th:href="@{/exit}" class="dropdown-item">Logout</a>
+					</div>
 			</ul>
 		</div>
 	</nav>
@@ -45,7 +65,7 @@
 				<div>
 					<div class="inline">
 						<a class="btn btn-dark back-button" title=" Back to Tickets Page"
-							th:href="@{/admin/tickets}"> <span><i
+							th:href="@{/{role}/tickets (role=${role})}"> <span><i
 								class="fa fa-arrow-left"></i></span>
 						</a>
 					</div>
@@ -54,7 +74,8 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<form th:action="@{/admin/tickets/{id} (id=${ticket.id})}"
+					<form
+						th:action="@{/{role}(role=${role})/tickets/{id}(id=${ticket.id})}"
 						th:object="${ticket}" method="POST">
 						<div class="form-group">
 							<label> Title</label> <input type="text" name="title"
