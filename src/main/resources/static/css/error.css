@@ -11,10 +11,10 @@ footer {
 }
 
 button#home-page {
-	background-color: #008CBA; /* Green */
+	background-color: #A30000; 
 	border: none;
 	color: white;
-	padding: 20px;
+	padding: 15px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
