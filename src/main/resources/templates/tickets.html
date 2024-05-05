@@ -86,11 +86,12 @@ footer {
 					<div class="input-group">
 						<input type="text" class="form-control rounded"
 							placeholder="Search" id="search" name="search"
-							aria-label="Search"
-							aria-describedby="search-addon"
-							th:value="${#strings.isEmpty(search)} ? '' : ${search}" />
+							aria-label="Search" aria-describedby="search-addon"
+							th:value="${#strings.isEmpty(search)} ? '' : ${search}"
+							title="You can search by Title & Short Description" />
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">Search</button>
+							<button type="submit" class="btn btn-primary"
+								title="You can search by Title & Short Description">Search</button>
 						</div>
 					</div>
 				</div>
@@ -132,7 +133,7 @@ footer {
 	</div>
 
 	<footer class="bg-dark text-white text-center py-3">
-		<p>&copy; 2023 GreatLearning. All rights reserved.</p>
+		<p>&copy; 2024 GreatLearning. All rights reserved.</p>
 	</footer>
 
 </body>

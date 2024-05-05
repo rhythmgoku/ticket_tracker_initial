@@ -73,7 +73,7 @@
 						<p style="font-size: 1.2em;">Please click on this button to
 							take you back to the Home Page.</p>
 						<input type="hidden" id="errorCode" name="errorCode"
-							th:value="${errorCode}"> <a href="/${role}/tickets">
+							th:value="${errorCode}"> <a th:href="@{/{role}/tickets (role=${role})}">
 							<button id="home-page" type="button">Back to
 								Home Page</</>
 					</div>
@@ -117,7 +117,7 @@
 		</div>
 	</div>
 	<footer class="bg-dark text-white text-center py-3">
-		<p>&copy; 2023 GreatLearning. All rights reserved.</p>
+		<p>&copy; 2024 GreatLearning. All rights reserved.</p>
 	</footer>
 </body>
 </html>

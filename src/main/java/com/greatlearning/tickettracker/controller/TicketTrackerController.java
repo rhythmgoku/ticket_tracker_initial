@@ -52,14 +52,7 @@ public class TicketTrackerController {
 
 	@PostMapping("/search")
 	public String searchTicket(@ModelAttribute("search") String keyword, Model model) {
-		List<Ticket> ticketsList = null;
-		if (StringUtils.isBlank(keyword)) {
-			ticketsList = trackerService.getAllTickets();
-		} else {
-			ticketsList = trackerService.findTicketsBykeyword(keyword);
-		}
-		Set<Ticket> ticketList = new LinkedHashSet<>(ticketsList);
-
+		Set<Ticket> ticketList = trackerService.findTicketsBykeyword(keyword);
 		populateModleAttributes(model, null, ticketList, keyword);
 
 		return "tickets";
@@ -72,8 +65,8 @@ public class TicketTrackerController {
 	}
 
 	@PostMapping("/save")
-	public String saveTicket(@ModelAttribute("ticket") Ticket ticket) {
-		trackerService.saveOrUpdateTicket(ticket);
+	public String saveTicket(@ModelAttribute("ticket") Ticket ticket) throws Exception {
+		trackerService.saveOrUpdateTicket(ticket, null);
 		return "redirect:/" + role + "/tickets";
 	}
 
@@ -100,15 +93,7 @@ public class TicketTrackerController {
 	@PostMapping("/{id}")
 	public String updateTicket(@PathVariable("id") String id, @ModelAttribute("ticket") Ticket updatedTicket)
 			throws Exception {
-		Ticket ticket = trackerService.getTicketById(Integer.parseInt(id));
-		if (null != ticket) {
-			ticket = new Ticket(updatedTicket);
-			ticket.setId(Integer.parseInt(id));
-		} else {
-			throw new Exception(
-					"Ticket with provided Ticket Id does not exists in the database, Please Add the Ticket before editing ");
-		}
-		trackerService.saveOrUpdateTicket(ticket);
+		trackerService.saveOrUpdateTicket(updatedTicket,Integer.parseInt(id));
 		return "redirect:/" + role + "/tickets";
 	}
 

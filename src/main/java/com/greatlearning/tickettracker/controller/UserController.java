@@ -53,6 +53,8 @@ public class UserController {
 	public String accessDenied(Model model) {
 		model.addAttribute("errorCode", "403");
 		model.addAttribute("errorUniqueMessage", "You don't have enough privileges to perform this action");
+		model.addAttribute("username", userName);
+		model.addAttribute("role", role.toLowerCase());
 		return "error";
 	}
 

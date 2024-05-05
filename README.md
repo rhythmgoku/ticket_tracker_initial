@@ -16,8 +16,88 @@ Key Features:
 - Ticket Edit : Users can edit the created tickets as per requirements.
 - Ticket Search : Tickets can be searched from the ticket database.
 
+
 ## Suggested IDE
 
 - Eclipse
 - STS
 - IntelliJ
+
+
+# Application Walk-through/Demo
+
+
+## Admin Work Flow
+
+![](screenshots/Screenshot 2024-05-05 093904.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 093947.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094005.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094037.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094024.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094120.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094344.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094404.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094445.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094521.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094548.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094627.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094651.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094739.jpg)
+
+
+## User Work Flow
+
+![](screenshots/Screenshot 2024-05-05 094814.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094828.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094911.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 095022.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094938.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 095022 - Copy.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 094957 - Copy.jpg)
+
+
+![](screenshots/Screenshot 2024-05-05 095120.jpg)
+
+
+
+
+
+
